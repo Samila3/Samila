@@ -9,11 +9,17 @@ class TimevolcellController extends CI_Controller{
         parent::__construct();
         $this->load->model('timevolcell');
     }
-    public function index(){
+    public function index() {
         //get data 
-        $data['cellid']=$this->timevolcell->get_data();
+        if($this->input->post()){
+            $from = $_POST['from'];
+            $to = $_POST['to'];
+            $data['cellid'] = $this->timevolcell->get_data($from, $to);
+        }else {
+            $data['cellid'] = $this->timevolcell->get_data();
+        }
         //load view file
-        $this->load->view('timevolcell',$data);
+        $this->load->view('timevolcell', $data);
     }
 }
 ?>
