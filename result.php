@@ -6,40 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="uft-8">
-    <title>Customer|detail</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NTC timevolcell</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-    $( function() {
-    $( "#datepicker" ).datepicker();
-    } );
-
-   /* $(function(){
-    $("#filter").bind("click", function() {
-        var from = $("#datepicker").val();
-        var to = $("#datepicker2").val();
-        alert(from + "  " + to);
-    });
-    });*/
-    
-    $( function() {
-        $( "#datepicker2" ).datepicker();
-    } );
-    $(function(){
-        $('#reset').click(function() {
-            window.location.href = "/Ntelecom1";
-        });
-    });
-  </script>
-
-
+<title>Customer|detail</title>
     <style>
         .top-bar{
             text-align:center;
@@ -62,42 +29,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </style>
 </head>
 <body>
-<div class="top-bar"> <h1>.....Contact Detail.....</h1></div>
+<div class="top-bar"> <h1>Customer Detail</h1></div>
    <div><center>
     <div  id="container">
 
-<?php if (!empty($contact)) { ?>
+<?php if (!empty($customer)) { ?>
     <table border="1" class="call_list">
     <tr>
         <th>S.No. </th>
-        <th>Customer No. </th>
-        <th>Opponent no. </th>
-        <th>Date </th>
-        <th>Time </th>
-        <th>Location From </th>
-        <th>Location To </th>
-        <th>Revenue </th>
+        <th>Name </th>
+        <th>Permanent Address </th>
+        <th>Mobile No. </th>
     </tr>
 
    
     <?php $i=1;?>
    
-    <?php foreach($contact as $cont):?>
+    <?php foreach($customer as $mob):?>
 
     <tr>
         <td><?php echo $i++?></td>
-        <td><?php echo $cont['custno'];?></td>
-        <td><?php echo $cont['oppono'];?></td>
-        <td><?php echo $cont['date'];?></td>
-        <td><?php echo $cont['time'];?></td>
-        <td><?php echo $cont['locfrom'];?></td>
-        <td><?php echo $cont['locto'];?></td>
-        <td><?php echo $cont['revenue'];?></td>
+        <td><?php echo $mob->name;?></td>
+        <td><?php echo $mob->address;?></td>
+        <td><?php echo $mob->mobile;?></td>
     </tr>
     <?php endforeach;?>
     </table>
 <?php } else {?>
-<p>Contact record not found!!!!!!!</p>
+<p>Data Not Found</p>
  <?php } ?>
 
 
